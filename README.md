@@ -21,6 +21,6 @@ In Global.asax:
 
 Example of consuming the service on a client:
 
-var client = new InterfaceService.Http.HttpInterface<IInterface>("http://localhost:10082/test/").Client;
-var result = client.MethodName("parameters");
+	var client = new InterfaceService.Http.HttpInterface<IInterface>("http://localhost:10082/test/").Client;
+	var result = client.MethodName("parameters");
 
