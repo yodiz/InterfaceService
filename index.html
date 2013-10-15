@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Interfaceservice by yodiz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Interfaceservice</h1>
+        <p>An example of how you could host an interface as an service as well as access the host from a client.</p>
+
+        <p class="view"><a href="https://github.com/yodiz/InterfaceService">View the Project on GitHub <small>yodiz/InterfaceService</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/yodiz/InterfaceService/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/yodiz/InterfaceService/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/yodiz/InterfaceService">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="interfaceservice" class="anchor" href="#interfaceservice"><span class="octicon octicon-link"></span></a>InterfaceService</h1>
+
+<p>An example of how you could host an interface as an service as well as access the host from a client.</p>
+
+<p>Example of hosting an interface in a .net web project:</p>
+
+<p>In Global.asax:</p>
+
+<pre><code>public class Global : System.Web.HttpApplication
+{
+    protected void Application_Start(object sender, EventArgs e)
+    {
+        RouteTable.Routes.Add(new Http.InterfaceRoute&lt;IInterface&gt;("test/{func}/", () =&gt; new Impl()));
+    }
+}
+</code></pre>
+
+<ul>
+<li>IInterface is the interface to host</li>
+<li>"test/{func}/" is the url where it is hosted</li>
+<li>new Impl() is a instance implementing the interface</li>
+</ul><p>Example of consuming the service on a client:</p>
+
+<pre><code>var client = new InterfaceService.Http.HttpInterface&lt;IInterface&gt;("http://localhost:10082/test/").Client;
+var result = client.MethodName("parameters");
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/yodiz">yodiz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
