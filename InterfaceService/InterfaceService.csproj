@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Http\HttpCaller.cs" />
-    <Compile Include="IJsonSerializer.cs" />
+    <Compile Include="IStringSerializer.cs" />
     <Compile Include="JsonSerializer.cs" />
     <Compile Include="MethodFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
